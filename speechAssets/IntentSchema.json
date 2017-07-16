@@ -1,37 +1,6 @@
 {
   "intents": [
     {
-      "slots": [
-        {
-          "name": "StopID",
-          "type": "LIST_OF_STOPS"
-        },
-        {
-          "name": "BusID",
-          "type": "LIST_OF_ROUTES"
-        }
-      ],
-      "intent": "GetSingleNextArrivalIntent"
-    },
-    {
-      "slots": [
-        {
-          "name": "StopID",
-          "type": "LIST_OF_STOPS"
-        }
-      ],
-      "intent": "GetAllNextArrivalsIntent"
-    },
-    {
-      "slots": [
-        {
-          "name": "BusID",
-          "type": "LIST_OF_ROUTES"
-        }
-      ],
-      "intent": "GetBusIntent"
-    },
-    {
       "intent": "AMAZON.HelpIntent"
     },
     {
