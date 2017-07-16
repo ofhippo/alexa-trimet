@@ -13,11 +13,14 @@ const handlers = {
     'LaunchRequest': function(){
         const rosaParks = 11502;
 
-        triMetAPIInstance.getNextArrivalsForTrainStop(rosaParks)
-            .then(arrival => {
-                let minutesRemaining = arrival.getMinutesUntilArrival();
-                let minutePronunciation = SpeechHelper.getMinutePronunciation(minutesRemaining);
-                let responseText = `The next train is in ${minutePronunciation}.`;
+        triMetAPIInstance.getSortedFilteredArrivals(rosaParks)
+            .then(arrivals => {
+                let nextArrivals = arrivals.splice(0,2);
+                const minutesPronunciation = nextArrivals.map((arrival) =>
+                    SpeechHelper.getMinutePronunciation(arrival.getMinutesUntilArrival())
+                ).join(' and ');
+                
+                let responseText = `The next train${nextArrivals.length == 1 ? ' is' : 's are'} in ${minutesPronunciation}.`;
                 this.emit(':tell', responseText);
                 return;
             })
