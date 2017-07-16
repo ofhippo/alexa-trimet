@@ -4,7 +4,7 @@ import Alexa from 'alexa-sdk'
 import TriMetAPI from 'trimet-api-client'
 import SpeechHelper from './utils/SpeechHelper'
 
-const INVOCATION_NAME = process.env.INVOCATION_NAME || "When's the next train";
+const INVOCATION_NAME = process.env.INVOCATION_NAME || "next train";
 const APP_ID = process.env.APP_ID;
 const triMetAPIInstance = new TriMetAPI(process.env.TRIMET_API_KEY);
 
